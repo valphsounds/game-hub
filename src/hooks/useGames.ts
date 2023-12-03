@@ -30,7 +30,7 @@ const useGames = () => {
 
     setLoading(true);
     apiClient
-      .get<FetchGamesResponse>("/games")
+      .get<FetchGamesResponse>("/games", {signal: controller.signal})
       .then((res) => {
         setGames(res.data.results);
         setLoading(false);
